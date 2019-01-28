@@ -7,5 +7,5 @@
         root = ~/ghq
         root = ~/go/src
 [gui]
-	fontui = -family "Noto Sans Mono" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family "Noto Sans Mono" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+	fontui = -family \"Noto Sans Mono\" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Noto Sans Mono\" -size 9 -weight normal -slant roman -underline 0 -overstrike 0

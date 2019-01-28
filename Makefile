@@ -4,7 +4,7 @@ export CLOUDSDK_PYTHON := python2
 
 pacman:
 	sudo pacman -Syu --noconfirm \
-		dialog xorg xorg-xinit pulseaudio \
+		dialog xorg xorg-xinit pulseaudio xdg-user-dirs \
 		i3 rofi feh termite gnome-screenshot firefox \
 		noto-fonts noto-fonts-cjk noto-fonts-emoji \
 		fcitx fcitx-im fcitx-mozc fcitx-configtool \
@@ -30,9 +30,10 @@ docker:
 	sudo usermod -aG docker ${USER}
 	sudo systemctl enable docker
 
-x:
+x: pacman
 	ln -sfv ${PWD}/.xinitrc ${HOME}/.xinitrc
 	ln -sfv ${PWD}/.xprofile ${HOME}/.xprofile
+	LANGUAGE=en xdg-user-dirs-update --force
 
 zsh:
 	curl -sL --proto-redir -all,https \

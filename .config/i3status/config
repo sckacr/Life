@@ -1,6 +1,5 @@
 general {
     colors   = false
-    interval = 5
 }
 
 order += "wireless wlp3s0"
@@ -26,5 +25,5 @@ battery 0 {
 }
 
 tztime local {
-    format = "📅 %Y-%m-%d %H:%M"
+    format = "📅 %Y-%m-%d %H:%M:%S"
 }

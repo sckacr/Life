@@ -4,6 +4,8 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'w0rp/ale'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 
 cal plug#end()
 
@@ -34,6 +36,14 @@ if has('autocmd')
         au!
         au BufRead * if line('''"') > 0 && line('''"') <= line('$') | cal execute('norm g`"zz') | en
     aug END
+    if executable('gopls')
+        au User lsp_setup cal lsp#register_server({
+                    \ 'name': 'gopls',
+                    \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+                    \ 'whitelist': ['go'],
+                    \ })
+        au FileType go setl ofu=lsp#complete
+    en
 en
 
 ru ftplugin/man.vim

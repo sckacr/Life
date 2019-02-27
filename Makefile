@@ -6,7 +6,7 @@ pacman:
 	sudo pacman -Syu --noconfirm \
 		dialog xorg xorg-xinit pulseaudio xdg-user-dirs \
 		i3 rofi feh termite gnome-screenshot firefox \
-		noto-fonts noto-fonts-cjk noto-fonts-emoji \
+		ttf-inconsolata noto-fonts noto-fonts-cjk noto-fonts-emoji \
 		fcitx fcitx-im fcitx-mozc fcitx-configtool \
 		zsh gvim git tk tig xsel xclip fzy tree \
 		python python2 go npm clisp \

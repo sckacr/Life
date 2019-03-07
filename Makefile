@@ -2,6 +2,8 @@ export GOPATH := ${HOME}/go
 export npm_config_prefix := ${HOME}/node_modules
 export CLOUDSDK_PYTHON := python2
 
+all: pacman yay aur git heroku docker x zsh vim i3 rofi termite ghq cloud-sdk
+
 pacman:
 	sudo pacman -Syu --noconfirm \
 		dialog xorg xorg-xinit pulseaudio xdg-user-dirs \
@@ -66,5 +68,3 @@ ghq:
 
 cloud-sdk:
 	curl https://sdk.cloud.google.com |  bash
-
-all: pacman yay aur git heroku docker x zsh vim i3 rofi termite ghq cloud-sdk

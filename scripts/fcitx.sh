@@ -1,6 +1,4 @@
-sudo timedatectl set-ntp true
-
-pulseaudio --start
+#!/bin/sh
 
 fcitx-autostart
 fcitx-configtool &

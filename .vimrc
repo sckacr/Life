@@ -4,12 +4,10 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'w0rp/ale'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
 
 cal plug#end()
 
-let g:go_def_mode = 'godef'
+let g:go_def_mode = 'gopls'
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
@@ -19,7 +17,7 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
-let g:go_metalinter_enabled = ['vet']
+let g:go_metalinter_disabled = []
 
 let g:ale_sign_column_always = 1
 let g:ale_set_loclist = 0
@@ -28,22 +26,15 @@ let g:ale_lint_on_text_changed = 1
 let g:ale_sign_error = '💥'
 let g:ale_sign_warning = '💣'
 let g:ale_linters = {
-            \ 'go': ['govet'],
+            \ 'go': ['gopls'],
             \ }
+let g:ale_go_langserver_executable = 'gopls'
 
 if has('autocmd')
     aug ReadFile
         au!
         au BufRead * if line('''"') > 0 && line('''"') <= line('$') | cal execute('norm g`"zz') | en
     aug END
-    if executable('gopls')
-        au User lsp_setup cal lsp#register_server({
-                    \ 'name': 'gopls',
-                    \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-                    \ 'whitelist': ['go'],
-                    \ })
-        au FileType go setl ofu=lsp#complete
-    en
 en
 
 ru ftplugin/man.vim

@@ -29,10 +29,12 @@ setopt extended_glob
 alias ls='ls --group-directories-first --color -G -F'
 alias rm='rm -i'
 
+alias g='cd $(ghq list -p | fzy)'
+
 export CLOUDSDK_PYTHON=python2
 export GOPATH=$HOME/go
 export npm_config_prefix=~/node_modules
-export PATH=$HOME/google-cloud-sdk/platform/google_appengine:$GOPATH/bin:$npm_config_prefix/bin:$PATH
+export PATH=$HOME/google-cloud-sdk/platform/google_appengine:$GOPATH/bin:$npm_config_prefix/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH
 
 if [ -f '/home/sckacr/google-cloud-sdk/path.zsh.inc' ]; then 
     . '/home/sckacr/google-cloud-sdk/path.zsh.inc'

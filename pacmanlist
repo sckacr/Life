@@ -23,6 +23,7 @@ npm
 openssh
 pulseaudio
 python
+python-pip
 python2
 rofi
 ruby

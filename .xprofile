@@ -1,3 +1,5 @@
+# vi: se ft=sh :
+
 fcitx-autostart
 export TERMINAL=termite
 export EDITOR=vim
